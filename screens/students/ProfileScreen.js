@@ -1,5 +1,5 @@
 import React , {useCallback} from 'react'
-import { StyleSheet, Text, View,Image, ScrollView, TouchableNativeFeedback } from 'react-native'
+import { StyleSheet, Text, View,Image, ScrollView, TouchableNativeFeedback , Linking } from 'react-native'
 
 
 import { AntDesign } from '@expo/vector-icons';
@@ -52,7 +52,7 @@ export default function ProfileScreen(props) {
                   name="github" 
                   size={40} 
                   color="white" 
-                  onPress={handlePress.bind(this)}
+                  onPress={handlePress.bind(this,'https://github.com/')}
                 />
               </View>
               <View style={styles.iconContainer}>
@@ -85,8 +85,17 @@ export default function ProfileScreen(props) {
             <Text style={styles.contact}>Contact</Text>  
           </View>
           <View style={{flexDirection : 'row' , justifyContent : 'space-evenly',alignItems : 'center',marginBottom : 20}}>
-            <MaterialIcons name="email" size={40} color={Colors.accent} />
-            <Entypo name="mobile" size={40} color={Colors.accent} />
+            <MaterialIcons 
+              name="email" 
+              size={40} 
+              color={Colors.accent} 
+              onPress={handlePress.bind(this,'mailto:pavan.shinde@walchandsangli.ac.in')}
+            />
+            <Entypo 
+              name="mobile" 
+              size={40} color={Colors.accent} 
+              onPress= {handlePress.bind(this,'tel:+917841990407')}
+            />
           </View>
       </View>
 
