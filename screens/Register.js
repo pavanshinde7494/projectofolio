@@ -49,7 +49,7 @@ export default function Register(props) {
           {/* Image */}
             <View style={{marginBottom :30 }}>
               <Image 
-                  source={require('../assets/projectofolio.png')}
+                  source={require('../assets/projectofolio.jpg')}
                   style={{height : 100 , width : 100}}
               />
             </View>

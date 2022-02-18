@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
 import Navigator from './navigation/Navigator'
+import ProfessorNavigator from './navigation/ProfessorNavigator';
 
 
 // Font

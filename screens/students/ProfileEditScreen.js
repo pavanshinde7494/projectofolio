@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     titleContent : {
         fontFamily : 'open-sans-bold',
         fontSize : 15,
-        color : 'black'
+        color : '#888'
     },
     input : {
         width : '70%',
