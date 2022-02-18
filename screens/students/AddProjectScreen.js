@@ -164,7 +164,7 @@ export default function AddProjectScreen(props) {
             {/* Project Screenshot */}
             <View style={styles.container}>
               <View style={styles.title}>
-                  <Text style={styles.titleContent} >Description</Text>
+                  <Text style={styles.titleContent} >Screenshot</Text>
               </View>
               <View style={styles.selectImg}>
                 {image  && <Image

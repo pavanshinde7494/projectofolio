@@ -12,6 +12,8 @@ import ProfileScreen from '../screens/students/ProfileScreen';
 import ContributorProfile from '../screens/students/ContributorProfile';
 import ProfileEditScreen from '../screens/students/ProfileEditScreen'
 import AddProjectScreen from '../screens/students/AddProjectScreen'
+import Login from '../screens/Login';
+import Register from '../screens/Register';
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -217,7 +219,7 @@ const LogoutNavigator = ()=>{
 }
 
 
-const Navigator = ()=>{
+const DrawerNavigator = ()=>{
     return (
     <Drawer.Navigator
         initialRouteName='ProjectTabNavigator'
@@ -372,6 +374,32 @@ const Navigator = ()=>{
         />
         
     </Drawer.Navigator>)
+}
+
+
+
+const Navigator = ()=>{
+    return(
+    <Stack.Navigator
+        screenOptions={{
+            headerShown : false
+        }}
+        initialRouteName='Login'
+    >
+        <Stack.Screen
+            name='Login'
+            component={Login}
+        />
+        <Stack.Screen
+            name='Register'
+            component={Register}
+        />
+        <Stack.Screen
+            name='DrawerNavigator'
+            component={DrawerNavigator}
+        />
+    </Stack.Navigator>
+    )
 }
 
 export default Navigator
