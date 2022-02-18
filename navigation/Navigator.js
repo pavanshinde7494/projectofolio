@@ -1,12 +1,17 @@
-import {Text} from 'react-native'
+import {Text, View} from 'react-native'
 
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 import ProjectListScreen from "../screens/students/ProjectListScreen";
 import ProjectDetailScreen from "../screens/students/ProjectDetailScreen";
 import ProfileScreen from '../screens/students/ProfileScreen';
 import ContributorProfile from '../screens/students/ContributorProfile';
+import ProfileEditScreen from '../screens/students/ProfileEditScreen'
+import AddProjectScreen from '../screens/students/AddProjectScreen'
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -14,6 +19,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import Colors from "../constants/Colors";
 import FilterScreen from '../screens/students/FilterScreen';
+import Logout from '../screens/Logout';
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -158,6 +164,7 @@ const ProfileScreenNavigator = ()=>{
     return (
         <Stack.Navigator
             screenOptions={config}
+            initialRouteName='ProfileScreen'
         >
             <Stack.Screen
                 name='ProfileScreen'
@@ -166,7 +173,46 @@ const ProfileScreenNavigator = ()=>{
                     headerTitle : 'Profile'
                 }}
             />
+            <Stack.Screen
+                name='ProfileEditScreen'
+                component={ProfileEditScreen}
+                options={{
+                    headerTitle : 'Edit Profile'
+                }}
+            />
         </Stack.Navigator>
+    )
+}
+
+const AddProjectScreenNavigator = ()=>{
+    return (<Stack.Navigator
+        screenOptions={config}
+    >
+        <Stack.Screen 
+            name='AddProjectScreen'
+            component={AddProjectScreen}
+            options={{
+                headerTitle : 'Add Project'
+            }}
+        />
+    </Stack.Navigator>
+    )
+}
+
+
+const LogoutNavigator = ()=>{
+    return (
+    <Stack.Navigator
+        screenOptions={config}
+    >
+        <Stack.Screen 
+            name='Logout'
+            component={Logout}
+            options={{
+                headerTitle : 'Logout'
+            }}
+        />
+    </Stack.Navigator>
     )
 }
 
@@ -187,14 +233,27 @@ const Navigator = ()=>{
             options={{
                 drawerLabel : (metaData)=>{
                     return (
-                    <Text
-                        style={{
-                            color : metaData.focused ? 'white' : '#888',
-                            fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
-                        }}  
-                    >
-                        Project List
-                    </Text>)
+
+                    <View style={{flexDirection : 'row'}}>
+                        <View style={{marginRight : 10}}>
+                            <Octicons 
+                                name="project" 
+                                size={metaData.focused ? 20 : 15} 
+                                color={metaData.focused ? 'white' : '#888'} 
+                            />
+                        </View>
+                        
+                        <Text
+                            style={{
+                                color : metaData.focused ? 'white' : '#888',
+                                fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
+                            }}  
+                        >
+                            Projects
+                        </Text>
+                    </View>
+                    
+                    )
                 }
             }}
         />
@@ -204,14 +263,25 @@ const Navigator = ()=>{
             options={{
                 drawerLabel : (metaData)=>{
                     return (
-                    <Text
-                        style={{
-                            color : metaData.focused ? 'white' : '#888',
-                            fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
-                        }}  
-                    >
-                        Filter
-                    </Text>)
+                    <View style={{flexDirection : 'row'}}>
+                        <View style={{marginRight : 10}}>
+                            <Feather 
+                                name="filter" 
+                                size={metaData.focused ? 20 : 15} 
+                                color={metaData.focused ? 'white' : '#888'} 
+                            />
+                        </View>
+                        
+                        <Text
+                            style={{
+                                color : metaData.focused ? 'white' : '#888',
+                                fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
+                            }}  
+                        >
+                           Filter
+                        </Text>
+                    </View>
+                    )
                 }
             }}
         />
@@ -221,17 +291,86 @@ const Navigator = ()=>{
             options={{
                 drawerLabel : (metaData)=>{
                     return (
-                    <Text
-                        style={{
-                            color : metaData.focused ? 'white' : '#888',
-                            fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
-                        }}  
-                    >
-                        Profile
-                    </Text>)
+                    <View style={{flexDirection : 'row'}}>
+                        <View style={{marginRight : 10}}>
+                            <AntDesign 
+                                name="user" 
+                                size={metaData.focused ? 20 : 15} 
+                                color={metaData.focused ? 'white' : '#888'} 
+                            />
+                        </View>
+                        
+                        <Text
+                            style={{
+                                color : metaData.focused ? 'white' : '#888',
+                                fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
+                            }}  
+                        >
+                           Profile
+                        </Text>
+                    </View>
+                    )
                 }
             }}
         />
+        <Drawer.Screen 
+            name='AddProjectScreenNavigator' 
+            component={AddProjectScreenNavigator}
+            options={{
+                drawerLabel : (metaData)=>{
+                    return (
+                    <View style={{flexDirection : 'row'}}>
+                        <View style={{marginRight : 10}}>
+                            <AntDesign 
+                                name="addfolder" 
+                                size={metaData.focused ? 20 : 15} 
+                                color={metaData.focused ? 'white' : '#888'} 
+                            />
+                        </View>
+                        
+                        <Text
+                            style={{
+                                color : metaData.focused ? 'white' : '#888',
+                                fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
+                            }}  
+                        >
+                           Add Project
+                        </Text>
+                    </View>
+                    )
+                }
+            }}
+        />
+
+        <Drawer.Screen 
+            name='LogoutNavigator' 
+            component={LogoutNavigator}
+            options={{
+                drawerLabel : (metaData)=>{
+                    return (
+                    <View style={{flexDirection : 'row'}}>
+                        <View style={{marginRight : 10}}>
+                            <MaterialIcons 
+                                name="logout" 
+                                size={metaData.focused ? 20 : 15} 
+                                color={metaData.focused ? 'white' : '#888'} 
+                            />
+                        </View>
+                        
+                        <Text
+                            style={{
+                                color : metaData.focused ? 'white' : '#888',
+                                fontFamily : metaData.focused ? 'open-sans-bold' : 'open-sans'
+                            }}  
+                        >
+                           Logout
+                        </Text>
+                    </View>
+                    )
+                }
+            }}
+        />
+        
     </Drawer.Navigator>)
 }
 

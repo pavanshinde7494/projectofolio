@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     },
     titleContent : {
         fontFamily : 'open-sans-bold',
-        fontSize : 18,
+        fontSize : 15,
         color : 'black'
     },
     picker : {

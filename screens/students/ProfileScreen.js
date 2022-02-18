@@ -35,7 +35,20 @@ export default function ProfileScreen(props) {
                   }}
               />
           )
-      }
+      },
+      headerRight : ()=>{
+        return (
+          <AntDesign 
+            name="edit" 
+            size={24} 
+            color="white" 
+            style={{marginRight : 10}}
+            onPress={()=>{
+              props.navigation.navigate('ProfileEditScreen');
+            }}
+          />
+        )
+    }
   });
   return (
     <View style={styles.container}>
@@ -119,6 +132,7 @@ export default function ProfileScreen(props) {
                 </View>
               </View>
           </TouchableNativeFeedback>
+          
             
         </ScrollView>
       </View>
