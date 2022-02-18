@@ -138,6 +138,7 @@ export default function AddProjectScreen(props) {
                         onChangeText={(text)=>{
                             setTitle(text);
                         }}
+                        color='#888'
                     />
                 </View>
                  
@@ -156,6 +157,7 @@ export default function AddProjectScreen(props) {
                       onChangeText={(text)=>{
                           setDescription(text);
                       }}
+                      color='#888'
                   />
               </View>
                 
@@ -197,6 +199,7 @@ export default function AddProjectScreen(props) {
                                     setTech(tmp);
                                     console.log(tech);
                                 }}
+                                color='#888'
                             />
                         </View>
                         )
@@ -252,6 +255,7 @@ export default function AddProjectScreen(props) {
                                     setContributor(tmp);
                                     console.log(contributor);
                                 }}
+                                color='#888'
                             />
                         </View>
                         )
@@ -304,6 +308,7 @@ export default function AddProjectScreen(props) {
                         return setGuide(itemValue)
                         
                     }}
+                    
                 >
                     <Picker.Item label='Dr. M. A. Shah (HOD)' value='Dr. M. A. Shah (HOD)'/>
                     <Picker.Item label='Dr. B. F. Momin' value='Dr. B. F. Momin'/>
@@ -331,6 +336,7 @@ export default function AddProjectScreen(props) {
                         onChangeText={(text)=>{
                             setGithub(text);
                         }}
+                        color='#888'
                     />
                 </View>
                  
@@ -346,16 +352,11 @@ export default function AddProjectScreen(props) {
                         onChangeText={(text)=>{
                             setHost(text);
                         }}
+                        color='#888'
                     />
                 </View>
                  
             </View>
-            
-            
-                 
-          
-                
-
         </ScrollView>
         
     );
@@ -371,17 +372,18 @@ const styles = StyleSheet.create({
         marginTop : 30
     },
     title : {
-        width : '30%'
+        width : '30%',
     },
     titleContent : {
         fontFamily : 'open-sans-bold',
         fontSize : 15,
-        color : 'black'
+        color : '#888'
     },
     input : {
         width : '70%',
         padding : 10,
         backgroundColor : 'white',
+        color : '#888'
     },
     buttonContainer : {
         flexDirection : 'row',

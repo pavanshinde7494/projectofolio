@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     fontFamily : 'open-sans',
     fontSize : 18,
     textAlign : 'justify',
-    color : 'black'
+    color : '#777'
   },
   buttonContainer : {
       marginVertical : 5,

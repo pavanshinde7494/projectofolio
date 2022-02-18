@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
     ,
     title : {
         fontFamily : 'open-sans-bold',
-        fontSize : 25  
+        fontSize : 25  ,
+        color : '#888'
     },
     techContainer:  {
         marginVertical : 5,
